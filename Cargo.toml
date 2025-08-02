@@ -2,6 +2,8 @@
 name = "jarvis"
 version = "0.1.1"
 edition = "2024"
+authors = ["Hav1ck"]
+license = "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007"
 
 [dependencies]
 cpal = "0.16.0"
