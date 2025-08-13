@@ -12,13 +12,6 @@ If you use the default version, the Whisper model will run on your **CPU**, whic
 - Download the latest Windows installer from the Releases page.
 - Prerequisites:
   - Windows 10/11 (x64)
-  - Microphone and speakers
-  - Internet connection
-  - Microsoft Edge WebView2 Runtime (installed automatically if missing)
-  - API keys (required on first run):
-    - Picovoice Porcupine (wake word)
-    - Google Gemini (LLM)
-    - ElevenLabs (text‑to‑speech)
 
 On first launch you’ll see an onboarding screen to paste these keys. Links are provided in‑app.
 
