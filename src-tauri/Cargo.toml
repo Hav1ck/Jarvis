@@ -1,0 +1,59 @@
+[package]
+name = "Jarvis"
+version = "0.3.0"
+description = "AI Voice Assistant like Siri"
+authors = ["Hav1ck <harevicker@gmail.com>"]
+edition = "2021"
+license = "AGPL-3.0"
+repository = "https://github.com/Hav1ck/Jarvis"
+homepage = "https://github.com/Hav1ck/Jarvis#readme"
+keywords = ["ai", "voice", "assistant", "tauri", "rust", "react"]
+categories = ["multimedia::audio", "gui", "api-bindings"]
+
+
+[lib]
+name = "jarvis_gui_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.3.1", features = [] }
+
+[dependencies]
+tauri = { version = "2.7.0", features = ["tray-icon"] }
+tauri-plugin-opener = "2.4.0"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.142"
+tauri-plugin-window-state = "2.4.0"
+
+anyhow = "1.0.99"
+
+cpal = "0.16.0"
+pv_porcupine = "3.0.3"
+webrtc-vad = "0.4.0"
+#whisper-rs = { version = "0.14.4", features = ["cuda"] }
+whisper-rs = "0.14.4"
+google-ai-rs = "0.1.2"
+tokio = { version = "1.47.1", features = ["full"] }
+dotenvy = "0.15.7"
+elevenlabs_rs = "0.6.0"
+rodio = "0.21.1"
+reqwest = { version = "0.12.22", features = [
+    "blocking",
+    "json",
+    "rustls-tls",
+    "stream",
+] }
+futures-util = "0.3.31"
+indicatif = { version = "0.18.0", features = ["tokio"] }
+arboard = "3.6.0"
+regex = "1.11.1"
+png = "0.17.16"
+image = { version = "0.25.6", default-features = false, features = ["png"] }
+base64 = "0.22.1"
+tempfile = "3.20.0"
+winapi = { version = "0.3.9", features = ["winuser"] }
+futures = "0.3.31"
+once_cell = "1.21.3"
+chrono = { version = "0.4.41", features = ["serde"] }
+url = "2.5.4"
+

@@ -1,0 +1,503 @@
+/*
+Copyright (C) 2025  Hav1ck
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+@import "tailwindcss";
+
+/* Theme tokens and defaults */
+:root {
+  color-scheme: dark;
+  --bg: #0b0e14;
+  --panel: #111622;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+
+  /* default theme is emerald */
+  --theme-accent: 16 185 129;
+  --theme-bg-tint: rgba(16, 185, 129, 0.06);
+  --theme-glow: 0 0 30px rgba(16, 185, 129, 0.25);
+}
+
+/* Theme variants */
+.theme-emerald {
+  --bg: #0b0e14;
+  --panel: #111622;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --theme-accent: 16 185 129;
+  --theme-bg-tint: rgba(16, 185, 129, 0.06);
+  --theme-glow: 0 0 30px rgba(16, 185, 129, 0.25);
+  --theme-ring: rgba(16, 185, 129, 0.5);
+  --theme-text: rgb(16, 185, 129);
+}
+
+.theme-rosepine {
+  --bg: #0e1018;
+  --panel: #151826;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --theme-accent: 235 188 186;
+  --theme-bg-tint: rgba(235, 188, 186, 0.08);
+  --theme-glow: 0 0 30px rgba(235, 188, 186, 0.2);
+  --theme-ring: rgba(235, 188, 186, 0.4);
+  --theme-text: rgb(255, 220, 218);
+}
+
+.theme-ocean {
+  --bg: #0a1018;
+  --panel: #101725;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --theme-accent: 56 189 248;
+  --theme-bg-tint: rgba(56, 189, 248, 0.08);
+  --theme-glow: 0 0 30px rgba(56, 189, 248, 0.2);
+  --theme-ring: rgba(56, 189, 248, 0.4);
+  --theme-text: rgb(190, 230, 255);
+}
+
+.theme-velvet {
+  --bg: #100d17;
+  --panel: #181424;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --theme-accent: 244 114 182;
+  --theme-bg-tint: rgba(244, 114, 182, 0.08);
+  --theme-glow: 0 0 30px rgba(244, 114, 182, 0.2);
+  --theme-ring: rgba(244, 114, 182, 0.4);
+  --theme-text: rgb(255, 210, 235);
+}
+
+.theme-cobalt {
+  --bg: #141d30;
+  --panel: #1a2340;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.09);
+  --theme-accent: 59 130 246;
+  --theme-bg-tint: rgba(59, 130, 246, 0.12);
+  --theme-glow: 0 0 30px rgba(59, 130, 246, 0.3);
+  --theme-ring: rgba(59, 130, 246, 0.58);
+  --theme-text: rgb(170, 208, 255);
+}
+
+.theme-honey {
+  --bg: #0d0b06;
+  --panel: #161107;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --theme-accent: 250 204 21;
+  --theme-bg-tint: rgba(250, 204, 21, 0.08);
+  --theme-glow: 0 0 30px rgba(250, 204, 21, 0.2);
+  --theme-ring: rgba(250, 204, 21, 0.4);
+  --theme-text: rgb(255, 240, 180);
+}
+
+.theme-crimson {
+  --bg: #12080a;
+  --panel: #1b1011;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --theme-accent: 239 68 68;
+  --theme-bg-tint: rgba(239, 68, 68, 0.08);
+  --theme-glow: 0 0 30px rgba(239, 68, 68, 0.22);
+  --theme-ring: rgba(239, 68, 68, 0.42);
+  --theme-text: rgb(255, 215, 215);
+}
+
+.theme-orchid {
+  --bg: #100e18;
+  --panel: #171324;
+  --panel-2: #0e1420;
+  --hairline: rgba(255, 255, 255, 0.06);
+  --theme-accent: 217 70 239;
+  --theme-bg-tint: rgba(217, 70, 239, 0.08);
+  --theme-glow: 0 0 30px rgba(217, 70, 239, 0.2);
+  --theme-ring: rgba(217, 70, 239, 0.4);
+  --theme-text: rgb(245, 220, 255);
+}
+
+/* UI Components with theme-based styling */
+.ui-button {
+  transition: box-shadow 0.3s ease;
+}
+
+.ui-button:hover {
+  box-shadow: var(--theme-glow);
+}
+
+/* Active conversation styling */
+.conversation-active {
+  box-shadow: var(--theme-glow);
+  border-color: rgb(var(--theme-accent)) !important;
+}
+
+/* API key toggle buttons */
+.api-key-toggle:hover {
+  box-shadow: var(--theme-glow);
+}
+
+/* Input mode toggle */
+.input-mode-toggle:hover {
+  box-shadow: var(--theme-glow);
+}
+
+/* Save and Reset buttons */
+.settings-action-btn:hover {
+  box-shadow: var(--theme-glow);
+}
+
+/* History toggle buttons */
+.history-toggle:hover {
+  box-shadow: var(--theme-glow);
+}
+
+/* New conversation button */
+.new-conversation-btn:hover {
+  box-shadow: var(--theme-glow);
+}
+
+/* Backcompat var used in mic styles */
+:root {
+  --glow-emerald: var(--theme-glow);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: radial-gradient(1200px 800px at 70% -200px,
+      rgba(56, 189, 248, 0.1),
+      transparent 60%),
+    radial-gradient(900px 700px at -200px 60%,
+      rgba(168, 85, 247, 0.08),
+      transparent 60%),
+    var(--bg);
+  color: rgb(228 228 231);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b2332;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Cards / glass layers */
+.ui-card {
+  background: linear-gradient(180deg,
+      rgba(28, 35, 51, 0.68),
+      rgba(20, 25, 38, 0.7));
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  overflow-x: hidden;
+  /* prevent sideways scroll inside cards */
+}
+
+/* Section headers and backgrounds */
+.ui-section-divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.9;
+}
+
+.ui-section-divider::before,
+.ui-section-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12),
+      transparent);
+}
+
+.ui-advanced-wrap {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+/* Gradient hairline separators */
+.ui-sep {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent);
+}
+
+/* Inputs / buttons */
+.ui-input {
+  background-color: var(--panel-2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  color: rgb(228 228 231);
+}
+
+select.ui-input {
+  padding-right: 2rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(161,161,170)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1rem;
+  font-size: 0.9rem;
+  color: rgb(228 228 231);
+}
+
+.ui-input::placeholder {
+  color: rgb(113 113 122);
+}
+
+.ui-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--theme-accent) / 0.35), var(--theme-glow);
+  border-color: rgba(var(--theme-accent) / 0.35);
+}
+
+/* Override for inputs that should not show the themed focus ring */
+.no-focus-ring:focus {
+  box-shadow: none !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.ui-range {
+  width: 100%;
+  accent-color: var(--theme-text);
+}
+
+/* Prevent accidental mousewheel changes on number inputs */
+.ui-input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ui-input[type="number"]::-webkit-outer-spin-button,
+.ui-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Primary buttons */
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1f2a33, #19232c);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+  color: rgb(228 228 231);
+  transition: transform 160ms ease, filter 160ms ease, background 200ms ease;
+}
+
+.ui-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.07);
+}
+
+/* Icon buttons */
+.ui-icon-button {
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.ui-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+/* Checkbox row for better alignment/click target */
+.ui-checkbox-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ui-checkbox-row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.ui-checkbox-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--theme-text);
+}
+
+/* Mic button themed */
+.mic-btn {
+  position: relative;
+  height: 52px;
+  width: 52px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 160ms ease, box-shadow 220ms ease, background 200ms ease,
+    border-color 200ms ease;
+  will-change: transform;
+}
+
+.mic-btn:hover {
+  transform: translateY(-1px) scale(1.06);
+}
+
+.mic-btn:active {
+  transform: scale(0.96);
+}
+
+.mic-idle {
+  background: radial-gradient(circle at 50% 40%,
+      rgba(var(--theme-accent) / 0.1),
+      rgba(var(--theme-accent) / 0.06));
+}
+
+.mic-active {
+  background: radial-gradient(circle at 50% 40%,
+      rgba(var(--theme-accent) / 0.28),
+      rgba(var(--theme-accent) / 0.16));
+  box-shadow: var(--theme-glow);
+  border-color: rgba(var(--theme-accent) / 0.38);
+}
+
+.mic-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg,
+      rgba(var(--theme-accent) / 0.35),
+      transparent 40%,
+      rgba(var(--theme-accent) / 0.35));
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.mic-active .mic-ring {
+  opacity: 1;
+}
+
+/* Dock sizing helpers */
+.dock-left {
+  min-width: 0;
+}
+
+.dock-center {
+  width: 520px;
+  max-width: 100%;
+}
+
+/* fixed center width for stability */
+.dock-right {
+  min-width: 0;
+}
+
+/* Bigger text entry in dock */
+.dock-text-input {
+  width: 100%;
+  height: 44px;
+  font-size: 0.95rem;
+}
+
+/* Floating dock style */
+.control-dock {
+  background: linear-gradient(180deg,
+      rgba(18, 24, 36, 0.9),
+      rgba(16, 20, 30, 0.9));
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover .tooltip-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tooltip-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  background: #0e1420;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgb(212 212 216);
+  max-width: 300px;
+  white-space: normal;
+  padding: 6px 8px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 120ms ease, transform 120ms ease;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Reduced motion support */
+body.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Shimmer for processing */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}

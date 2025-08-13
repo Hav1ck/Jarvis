@@ -1,0 +1,44 @@
+{
+  "name": "Jarvis",
+  "private": true,
+  "version": "0.3.0",
+  "description": "AI Voice Assistant like Siri",
+  "author": "Hav1ck <harevicker@gmail.com>",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hav1ck/Jarvis"
+  },
+  "homepage": "https://github.com/Hav1ck/Jarvis#readme",
+  "keywords": ["ai", "voice", "assistant", "tauri", "rust", "react"],
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.7.0",
+    "@tauri-apps/cli": "^2.7.1",
+    "@tauri-apps/plugin-opener": "^2.4.0",
+    "@tauri-apps/plugin-window-state": "^2.4.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.539.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11",
+    "typescript": "~5.9.2",
+    "vite": "^7.1.2"
+  }
+}
