@@ -8,7 +8,7 @@ To get answers quickly (in under 10 seconds), make sure to download the **GPU ve
 **Note:** Only **NVIDIA GPUs** are supported. If you don’t have an NVIDIA GPU, you may need to **compile the program yourself**.
 If you use the default version, the Whisper model will run on your **CPU**, which can take up to a minute per response.
 
-### Quick start (regular users)
+### Quick start
 - Download the latest Windows installer from the Releases page.
 - Prerequisites:
   - Windows 10/11 (x64)
