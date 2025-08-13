@@ -4,7 +4,8 @@ Jarvis is a desktop AI voice assistant built with Tauri (Rust + React). Speak wi
 
 ### Fast AI Response
 
-To get answers quickly (in under 10 seconds), make sure to download the **GPU version** of the program.
+To get answers quickly (in under 10 seconds), make sure to download the **GPU version** of the program. You will also need to install [CUDA Toolkit](https://developer.nvidia.com/cuda-12-8-0-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_local).
+
 **Note:** Only **NVIDIA GPUs** are supported. If you don’t have an NVIDIA GPU, you may need to **compile the program yourself**.
 If you use the default version, the Whisper model will run on your **CPU**, which can take up to a minute per response.
 
